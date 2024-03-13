@@ -1277,8 +1277,8 @@ public class Webhook extends Model implements ResourceConvertible {
 		
 		ObjectNode detailHash = Json.newObject();
 		detailHash.put("title", "해시");
-		detailHash.put("value", String.format("%s   \n[@%s](%s%s/commit/%s)", branch.substring(5), 
-		gitCommit.getFullId(), getBaseUrl(), RouteUtil.getUrl(project), gitCommit.getFullId()));
+		detailHash.put("value", String.format("[%s] [@%s](%s%s/commit/%s)", branch.substring(5), 
+		gitCommit.getFullId().substring(0, 8), getBaseUrl(), RouteUtil.getUrl(project), gitCommit.getFullId()));
 		
 		ObjectNode detailTitle = Json.newObject();
 		detailTitle.put("title", "제목");
